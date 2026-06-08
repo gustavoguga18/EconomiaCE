@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <!-- CSS personalizado -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Manifesto PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007aff">
 </head>
 <body class="container py-4">
 
@@ -84,6 +88,15 @@
 
   <!-- Script principal -->
   <script type="module" src="script.js"></script>
+
+  <!-- Registro do Service Worker -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js")
+        .then(() => console.log("Service Worker registrado!"))
+        .catch(err => console.error("Erro ao registrar SW:", err));
+    }
+  </script>
 
 </body>
 </html>
